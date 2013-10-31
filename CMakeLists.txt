@@ -78,6 +78,7 @@ if (GTEST_FOUND)
         )
     target_link_libraries(test-arac
         ${GTEST_LIBRARIES}
+        pthread
         arac
     )
     install (TARGETS test-arac RUNTIME DESTINATION bin)
