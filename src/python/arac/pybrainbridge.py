@@ -249,6 +249,10 @@ class _Network(Network):
     @property
     def offset(self):
         return self.proxies[self].timestep()
+    
+    @offset.setter
+    def offset(self, value):
+        print "Warning: setting the offset is not supported (%s)" % value
 
     def __init__(self, *args, **kwargs):
         super(_Network, self).__init__(*args, **kwargs)
