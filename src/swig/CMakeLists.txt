@@ -12,8 +12,8 @@ execute_process(COMMAND ${PYTHON_EXECUTABLE} --version
 
 string(REGEX MATCH "[0-9].[0-9]" PYTHON_VERSION_MAJOR_MINOR "${PYTHON_VERSION_FULL}")
 if(UNIX)
-    set(PYTHON_PLUGIN_INSTALL_PATH lib/python${PYTHON_VERSION_MAJOR_MINOR}/site-packages/arac)
-    set(PYTHON_PACKAGES_PATH lib/python${PYTHON_VERSION_MAJOR_MINOR}/site-packages)
+    set(PYTHON_PLUGIN_INSTALL_PATH lib/python${PYTHON_VERSION_MAJOR_MINOR}/dist-packages/arac)
+    set(PYTHON_PACKAGES_PATH lib/python${PYTHON_VERSION_MAJOR_MINOR}/dist-packages)
 endif()
 if(WIN32)
     get_filename_component(PYTHON_PATH "[HKEY_LOCAL_MACHINE\\SOFTWARE\\Python\\PythonCore\\${PYTHON_VERSION_MAJOR_MINOR}\\InstallPath]" ABSOLUTE CACHE)
@@ -21,7 +21,7 @@ if(WIN32)
     set(PYTHON_PACKAGES_PATH "${PYTHON_PATH}/Lib/site-packages")
 endif()
 
-message("Python path: "${PYTHON_PLUGIN_INSTALL_PATH})
+message("Python path: " ${PYTHON_PLUGIN_INSTALL_PATH})
 
 
 FIND_PACKAGE(SWIG REQUIRED)
@@ -49,8 +49,8 @@ set(python_files
     )
 
 if(WIN32)
-    install(FILES ${pyopencv_files} DESTINATION
-        "Python${PYTHON_VERSION_MAJOR_MINOR}/Lib/site-packages/opencv"
+    install(FILES ${python_files} DESTINATION
+        "Python${PYTHON_VERSION_MAJOR_MINOR}/Lib/site-packages/arac"
         COMPONENT main)
 else()
     install(FILES ${python_files} DESTINATION ${PYTHON_PLUGIN_INSTALL_PATH} COMPONENT main)
