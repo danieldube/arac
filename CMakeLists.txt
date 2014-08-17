@@ -83,7 +83,7 @@ if (GTEST_FOUND)
     )
     install (TARGETS test-arac RUNTIME DESTINATION bin)
 else (GTEST_FOUND)
-    message(Did not find the google testing framework. Tests will not be built.)
+    message("Did not find the google testing framework. Tests will not be built.")
 endif (GTEST_FOUND)
 
 #now we build the c++ interface:
