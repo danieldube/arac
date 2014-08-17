@@ -21,3 +21,5 @@ src/swig/cppbridge_wrap.cpp
 test-arac
 docs/output/
 src/swig/cppbridge_wrap.cc
+*~
+CMakeLists.txt.user
